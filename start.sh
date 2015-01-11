@@ -11,3 +11,5 @@ fi
 if missing "ansible"; then
   brew install ansible
 fi
+
+ansible-playbook -i hosts playbook.yml
