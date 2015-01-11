@@ -1,0 +1,33 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: install homebrew packages
+      homebrew: name={{ item }} state=latest update_homebrew=yes
+      with_items:
+        - vim
+        - irssi
+        - zsh
+        - chruby
+        - ruby-build
+        - scala
+        - leiningen
+        - go
+        - rust
+        - the_silver_searcher
+        - docker
+        - hub
+        - curl
+        - gpg
+
+    - name: install homebrew cask packages
+      homebrew_cask: name={{ item }} state=installed
+      with_items:
+        - google-chrome
+        - iterm2
+        - virtualbox
+        - vagrant
+        - vagrant-manager
+        - dash
+        - macdown
+
